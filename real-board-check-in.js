@@ -8,6 +8,7 @@ const baseUrl = 'https://api.real-board.com/api';
 if(!window["setGlobal"]){
     setGlobal = (name,value)=> console.log(`Setting global variable %${name} to ${value}`);
     exit = () => console.log("Exiting...");
+    local = () => "1";
 }
 
 
@@ -16,10 +17,10 @@ if(!window["setGlobal"]){
     if (process.argv.length < 4) {
         throw new Error('Missing parameters. Expected: <ccid> <username> <password> <action>');
     }
-    const ccid = Number.parseInt(process.argv[0]);
-    const username = process.argv[1];
-    const password = process.argv[2];
-    const action = process.argv[3];
+    const ccid = Number.parseInt(local('ccid'));
+    const username = local('username');
+    const password = local('password');
+    const action = local('par1');
 
     /**
      *
